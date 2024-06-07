@@ -2,9 +2,9 @@ import streamlit as st
 import pickle
 import re
 #import nltk
-import nbimporter
-import nbimporter
-from Resume_Screening_with_Python import cleanResume
+#import nbimporter
+#import nbimporter
+#from Resume_Screening_with_Python import cleanResume
 #nltk.download('punkt')
 #nltk.download('stopwords')
 
@@ -12,7 +12,15 @@ from Resume_Screening_with_Python import cleanResume
 #loading models
 clf = pickle.load(open('clf.pkl','rb'))
 tfidfd = pickle.load(open('tfidf.pkl','rb'))
-
+def cleanResume(resume_text):
+    clean_text = re.sub('http\S+\s*', ' ', resume_text)
+    clean_text = re.sub('RT|cc', ' ', clean_text)
+    clean_text = re.sub('#\S+', '', clean_text)
+    clean_text = re.sub('@\S+', '  ', clean_text)
+    clean_text = re.sub('[%s]' % re.escape("""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""), ' ', clean_text)
+    clean_text = re.sub(r'[^\x00-\x7f]', r' ', clean_text)
+    clean_text = re.sub('\s+', ' ', clean_text)
+    return clean_text
 #Web app
 def main():
     st.set_page_config(
