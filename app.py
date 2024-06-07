@@ -1,12 +1,12 @@
 import streamlit as st
 import pickle
 import re
-import nltk
+#import nltk
 import nbimporter
 import nbimporter
 from Resume_Screening_with_Python import cleanResume
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 
 #loading models
