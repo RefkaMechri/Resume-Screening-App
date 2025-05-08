@@ -25,3 +25,4 @@ Classer les CV selon leur niveau de correspondance.
 🧠 Utilisation du NLP (traitement du langage naturel) pour analyser les contenus
 
 🌐 Interface utilisateur intuitive pour consulter et trier les résultat
+![ResumeApp](ResumeApp.png)
